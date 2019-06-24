@@ -1,5 +1,4 @@
-// Lissajous generates GIF animations of random Lissajous figures.
-package main
+package ch1
 
 import (
 	"image"
@@ -11,15 +10,15 @@ import (
 	"os"
 )
 
-var palette = []color.Color{color.Black, color.RGBA{0x00, 0x80, 0x00, 0xff}, color.RGBA{0x00, 0x80, 0x80, 0xff}}
+var palette = []color.Color{color.Black, color.RGBA{0x00, 0x80, 0x00, 0xff}}
 
 const (
-	blackIndex = 0 // first color in palette
-	greenIndex = 1 // next color in palette
-	whutIndex  = 2 // next color in palette
+	whiteIndex = 0 // first color in palette
+	blackIndex = 1 // next color in palette
 )
 
-func main() {
+// Ex5 - Lissajous generates GIF animations of random Lissajous figures.
+func Ex5() {
 	lissajous(os.Stdout)
 }
 
@@ -37,20 +36,11 @@ func lissajous(out io.Writer) {
 	for i := 0; i < nframes; i++ {
 		rect := image.Rect(0, 0, 2*size+1, 2*size+1)
 		img := image.NewPaletted(rect, palette)
-		onoff := true
-		var index uint8
 		for t := 0.0; t < cycles*2*math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t*freq + phase)
-			if onoff {
-				index = greenIndex
-			} else {
-				index = whutIndex
-
-			}
-			onoff = !onoff
 			img.SetColorIndex(size+int(x*size+0.5), size+int(y*size+0.5),
-				index)
+				blackIndex)
 		}
 		phase += 0.1
 		anim.Delay = append(anim.Delay, delay)

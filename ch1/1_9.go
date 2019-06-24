@@ -1,5 +1,4 @@
-// Fetch prints the content found at a URL.
-package main
+package ch1
 
 import (
 	"fmt"
@@ -9,7 +8,8 @@ import (
 	"strings"
 )
 
-func main() {
+// Ex9 - Fetch prints the content found at a URL.
+func Ex9() {
 	for _, url := range os.Args[1:] {
 		if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
 			url = "http://" + url

@@ -1,11 +1,12 @@
-package main
+package ch1
 
 import (
 	"fmt"
 	"os"
 )
 
-func main() {
+// Ex1 -
+func Ex1() {
 	fmt.Println(os.Args[0])
 	s, sep := "", ""
 	for _, arg := range os.Args[1:] {

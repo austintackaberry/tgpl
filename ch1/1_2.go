@@ -1,4 +1,4 @@
-package main
+package ch1
 
 import (
 	"fmt"
@@ -6,7 +6,8 @@ import (
 	"strconv"
 )
 
-func main() {
+// Ex2 -
+func Ex2() {
 	for index, arg := range os.Args[1:] {
 		fmt.Println(strconv.Itoa(index) + " " + arg)
 	}
