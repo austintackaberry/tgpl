@@ -1,5 +1,5 @@
 // unitconv converts C<>F, ft<>m, lbs<>kg
-package main
+package unitconv
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 	"tgpl/ch2/tempconv"
 )
 
-func main() {
+func Unitconv() {
 	for _, arg := range os.Args[1:] {
 		t, err := strconv.ParseFloat(arg, 64)
 		if err != nil {
