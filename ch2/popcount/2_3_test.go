@@ -19,3 +19,9 @@ func BenchmarkShiftCount(b *testing.B) {
 		ShiftCount(436278463)
 	}
 }
+
+func BenchmarkQuickCount(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		QuickCount(436278463)
+	}
+}
