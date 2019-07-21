@@ -37,10 +37,21 @@ func PopCountLoop(x uint64) int {
 	return int(b)
 }
 
+// PopCountShift is PopCount but uses a bit shift.
+func ShiftCount(x uint64) int {
+	var ans uint64
+	var i uint64
+	for i = 0; i < 64; i++ {
+		x >>= 1
+		ans += x & 1
+	}
+	return int(ans)
+}
+
 func main() {
 	i, err := strconv.ParseUint(os.Args[1], 10, 64)
 	if err == nil {
-		ans := PopCountLoop(i)
+		ans := ShiftCount(i)
 		fmt.Printf("%d\n", ans)
 	}
 }

@@ -13,3 +13,9 @@ func BenchmarkPopCountLoop(b *testing.B) {
 		PopCountLoop(436278463)
 	}
 }
+
+func BenchmarkShiftCount(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		ShiftCount(436278463)
+	}
+}
